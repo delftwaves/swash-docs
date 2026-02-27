@@ -1,2 +1,0 @@
-# swash-docs
-SWASH documentation
