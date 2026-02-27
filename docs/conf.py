@@ -38,3 +38,10 @@ html_theme_options = {
 
 # includes SWASH logo
 html_logo = html_favicon = '_images/swashlogo.png'
+
+# edit on GitHub
+html_context = dict()
+html_context['display_github'] = True
+html_context['github_user'] = 'delftwaves'
+html_context['github_repo'] = 'swash-docs'
+html_context['github_version'] = 'main/docs/'
