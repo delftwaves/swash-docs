@@ -6,22 +6,22 @@
 SWASH model documentation
 =========================
 
-Nieuw paragraaf
----------------
-
-Dit is een test om te kijken of we online de Read-the-Docs documentaties kunnen creeeren en bekijken.
-Past iets aan of breidt het uit... zodat de workflow aan het werk wordt gezet.
-
-Ik heb het gezegd.
+SWASH is a general-purpose numerical tool for simulating unsteady, non-hydrostatic, free-surface, rotational flow and
+transport phenomena in coastal waters as driven by waves, tides, buoyancy and wind forces. It provides a general framework
+for describing wave transformations from deep water to a beach, port or harbour, complex changes to rapidly varied flows,
+and density driven flows in coastal seas, estuaries, lakes and rivers.
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :hidden:
-   :caption: Introduction:
+   :caption: Introduction
 
    intro/introduction
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :hidden:
-   :caption: Getting started:
+   :caption: Getting started
+
+   getting_started/install
+   getting_started/run
