@@ -1,4 +1,4 @@
-What is SWASH?
+what is SWASH?
 ==============
 
 introduction
@@ -148,11 +148,3 @@ SWASH provides the following output quantities (ASCII or binary Matlab files con
 * wave-induced setup
 * maximum horizontal runup or inundation depth
 * vertical runup height
-
-limitations
------------
-
-At present, SWASH does not account for:
-
-* hotstarting (*temporary limit*)
-* unstructured mesh computations in parallel using MPI (*temporary limit*)
