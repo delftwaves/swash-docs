@@ -25,6 +25,7 @@ and density driven flows in coastal seas, estuaries, lakes and rivers.
    :hidden:
    :caption: getting started
 
+   getting_started/tutorials
    getting_started/install
    getting_started/run
 
