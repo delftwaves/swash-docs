@@ -1,13 +1,18 @@
+.. _tuto1:
+
 tutorial 1: run SWASH in docker container
 =========================================
 
-This is a tutorial to get you started with setting up SWASH and then using it to model irregular waves propagating on a plane beach.
+This is a tutorial to get you started with setting up SWASH and then using it to model breaking waves propagating on a plane beach.
+
+In this tutorial we assume you already have some basic knowledge of ocean waves.
+It's also helpful to have access to Matlab or Jupyter Notebook for post processing later in this tutorial.
 
 step 1: install Docker
 ----------------------
 
 To keep things as simple as possible, we're not going to install SWASH and then start working with it from scratch. Instead, we'll run SWASH in the Docker container.
-Part of the intended model has already been set up and is inside the container while the rest of the model will be set up by you in this tutorial.
+Part of the intended model has already been set up and is resided in the container while the rest of the model will be set up by you in this tutorial.
 
 If you haven't installed Docker yet, you can download it from the official `Docker website <https://www.docker.com/get-started>`_.
 
@@ -55,7 +60,7 @@ step 4: setup input files
 -------------------------
 
 Inside the folder ``swash`` two input files will be created.
-These files are part of the model we use to simulate waves on the beach.
+These files are part of the model we use to simulate irregular waves on the beach with variable depth.
 The first file defines the bathymetry. For the purpose of this container the filename must be ``bathy.txt``.
 
 .. important::
@@ -94,6 +99,8 @@ elevation at the boundary a cycle period of 20 minutes is employed.
 
    For a correct syntax specification of boundary conditions and the various options, click on this `page <https://swash.sourceforge.io/online_doc/swashuse/swashuse.html#dx1-34003>`_.
 
+.. _step5:
+
 step 5: run docker container
 ----------------------------
 
@@ -101,7 +108,7 @@ Now it is time to run SWASH inside container ``waves``. First, ``cd`` to your wo
 
 .. code-block:: bash
 
-   docker run  --name myfirstrun -v .:/home/swash waves
+   docker run --name myfirstrun -v .:/home/swash waves
 
 .. note::
 
@@ -114,7 +121,9 @@ You'll now see the simulation progress on your screen. After a while, the simula
 The ``PRINT`` file contains the echo of the input, information concerning the parameters used, possible warning and errors, etc.
 The other file contains the actual model results of the simulation.
 
-In addition, the container has prepared two other files for you related to post processing: a Matlab file called ``mkplot.m`` and a Jupyter notebook ``mkplot.ipynb``.
+In addition, the container has prepared two other files for you related to post processing: a Matlab file called ``mkplot.m`` and a Jupyter Notebook ``mkplot.ipynb``.
+
+.. _step6:
 
 step 6: post processing
 -----------------------
@@ -128,7 +137,7 @@ File ``output.txt`` contains a table with four columns. Each column represents a
 
 respectively.
 
-Plots can be created using either Matlab or Jupyter notebook.
+Plots can be created using either Matlab or Jupyter Notebook.
 
 Matlab
 ^^^^^^
@@ -161,7 +170,7 @@ Matlab
 
      mkplot
 
-Jupyter notebook
+Jupyter Notebook
 ^^^^^^^^^^^^^^^^
 
 #. Open a terminal, navigate to your working directory ``swash``, and then type
@@ -172,3 +181,16 @@ Jupyter notebook
 
    You should see the notebook open in your browser.
 #. Execute the code cells one by one.
+
+
+step 7: are you satisfied with the results?
+-------------------------------------------
+
+Do the results agree with the theoretical expectations?
+
+.. tip::
+
+   - Try a different beach slope or a different wave height.
+   - Always check the ``PRINT`` file for warnings and errors!
+
+Once you are satisfied, you may continue with the next :ref:`tutorial <tuto2>`.

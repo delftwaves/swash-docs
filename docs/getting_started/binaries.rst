@@ -2,7 +2,7 @@ pre-compiled binary packages
 ============================
 
 A pre-compiled binary distribution allows quick installation without requiring compilation.
-The SWASH 11.01 binaries are available for the following OS/ARCH:
+The SWASH v11.01 binaries are available for the following OS/ARCH:
 
 - `Windows 11 (AMD64) <https://swash.sourceforge.io/download/zip/SWASH-11.01-Windows.exe>`_
 - `Linux Ubuntu 24.04 LTS (AMD64) <https://swash.sourceforge.io/download/zip/SWASH-11.01-Linux.tar.gz>`_
