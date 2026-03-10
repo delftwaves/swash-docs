@@ -114,7 +114,7 @@ Now it is time to run SWASH inside container ``waves``. First, ``cd`` to your wo
 
    - The parameter ``myfirstrun`` is an identifier for the container run. It is helpful to give each run a different name so you can keep track of which runs have been completed.
      Use the command ``docker ps -a`` for this.
-   - The ``-v`` option will allow data to be read or written from or to the host system. The syntax is ``-v <hostdir>:<containerdir>``.
+   - The ``-v`` directive will allow data to be read or written from or to the host system. The syntax is ``-v <hostdir>:<containerdir>``.
      Here, ``hostdir`` is your current directory ``.`` and ``containerdir`` is the directory ``/home/swash`` in the container.
 
 You'll now see the simulation progress on your screen. After a while, the simulation will finish, and *SWASH-in-container* will have generated two output files: ``PRINT`` and ``output.txt``.

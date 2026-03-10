@@ -16,7 +16,7 @@ Once the interactive bash shell is started in the container, the user can access
 
 .. note::
 
-   - The option ``-v .:/home/swash`` ensures that the SWASH output files and the PRINT file created in the directory ``/home/swash`` of the
+   - The directive ``-v .:/home/swash`` ensures that the SWASH output files and the PRINT file created in the directory ``/home/swash`` of the
      docker container will store in your local current directory.
-   - The option ``--rm`` removes the exited container from your machine after terminating SWASH. (Check by invoking the command ``docker ps -a``.)
+   - The flag ``--rm`` removes the exited container from your machine after terminating SWASH. (Check by invoking the command ``docker ps -a``.)
    - For a complete overview of the command ``docker run``, please refer to this `page <https://docs.docker.com/reference/cli/docker/container/run/>`_.

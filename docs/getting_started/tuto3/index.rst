@@ -30,12 +30,12 @@ step 2: modify command file
 
 Now it's time to edit the command file. First, make a copy of ``wavbrk.sws``. (This file was created in the previous :ref:`tutorial <tuto2>`.)
 
-The following components need to be modified or added:
+Edit the copied file and modify or add:
 
 #. Specify two layers using the command ``VERT``. Click
    `here <https://swash.sourceforge.io/online_doc/swashuse/swashuse.html#dx1-32005>`_ for a more precise specification.
-#. Shorten the duration for computing the significant wave height from 20 min to 10 min (see command ``QUANT``).
-#. Shorten the simulation time from 30 min to 15 min (see command ``COMPUTE``).
+#. Shorten the duration for computing the significant wave height from 20 min to 10 min (look at keyword ``QUANT``).
+#. Shorten the simulation time from 30 min to 15 min (see keyword ``COMPUTE``).
 
 .. hint::
 
@@ -73,4 +73,4 @@ step 4: post processing
 
 Once the run is complete, it's time to examine the model results using the plot scripts as explained in this :ref:`step <step6>`.
 
-Are the new results correct? Can you explain, for example, why these results differ from previous simulations?
+Does the new results make sense to you? Can you explain, for example, how these results differ from previous simulations?

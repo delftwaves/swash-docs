@@ -8,11 +8,11 @@ In this tutorial we will learn the basic input of SWASH and how to use it.
 At the basis of SWASH input is the so-called *command file* which contains some essential commands.
 These commands include the following components:
 
-- the computational mesh domain,
-- input data such as the bathymetry and currents,
-- boundary conditions,
-- some physical and numerical parameters, and finally
-- the output locations and output parameters.
+- create/read the computational mesh domain,
+- read input data such as the bathymetry and currents,
+- impose boundary conditions,
+- set some physical and numerical parameters, and finally
+- define the output locations and output parameters.
 
 For a list of available commands, click `here <https://swash.sourceforge.io/online_doc/swashuse/swashuse.html#description-of-commands>`_.
 
@@ -96,7 +96,7 @@ The syntax shown above applies only to Linux and Mac. For Windows, the run synta
 step 4: rerun the previous simulation
 -------------------------------------
 
-The run script ``swashrun`` is inside the container which has an Ubuntu kernel installed.
+The run script ``swashrun`` is inside the container which has a Linux kernel pre-installed.
 To run our own simulation, execute the following command:
 
 .. code-block:: bash
@@ -105,7 +105,9 @@ To run our own simulation, execute the following command:
 
 .. note::
 
-   - The option ``--name`` is actually no longer needed because run identification is now done via the command file.
+   - The ``--name`` flag is actually no longer needed because run identification is now done via the command file.
    - The run progress is not displayed on the screen but written to ``swashout``.
 
 Repeat the :ref:`post processing step <step6>` from the previous tutorial.
+
+Once you are done with this step you can move on to the next :ref:`tutorial <tuto3>`.
