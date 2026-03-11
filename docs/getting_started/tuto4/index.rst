@@ -147,7 +147,7 @@ or in Jupyter Notebook:
    U=mat.get('Mvel_x')
    V=mat.get('Mvel_y')
    fig, ax = plt.subplots()
-   q = ax.quiver(xp[1:51:5,1:1001:10], yp[1:51:5,1:1001:10], U[1:51:5,1:1001:10], V[1:51:5,1:1001:10],scale=10)
+   q = ax.quiver(xp[1::5,1::10], yp[1::5,1::10], U[1::5,1::10], V[1::5,1::10],scale=10)
    ax.set_xlim(500,1000)
    ax.set_ylim(0,200)
    plt.show()
