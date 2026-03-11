@@ -76,8 +76,7 @@ Create or edit the file ``bathy.txt`` and insert the following two lines:
 
 .. code-block:: none
 
-   10.
-   -2.
+   10. -2.
 
 .. note::
 
