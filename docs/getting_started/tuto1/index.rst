@@ -72,7 +72,7 @@ The model is partially set up in the container and it consists of a 1D domain wi
 The seabed level ranges from 10 m below still water level to 2 m above this level.
 Hence, the beach slope is approximately 1:100.
 
-Create or edit the file ``bathy.txt`` and insert the following two lines:
+Create or edit the file ``bathy.txt`` and insert the following line:
 
 .. code-block:: none
 
