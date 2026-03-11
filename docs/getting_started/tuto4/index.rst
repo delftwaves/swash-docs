@@ -41,7 +41,12 @@ Modify the file ``obqwav.sws`` according to the following instructions:
 #. include the output parameter ``MVEL`` defined as the depth- and phase-averaged wave-induced velocity vector (averaged over 20 minutes)
 #. add a transect in the middle, :math:`y = 100` m, which extends along the entire model domain perpendicular to the shore, for output of, among other things, ``MVEL``
 #. include the ``BLOCK`` command to make a snapshot of the depth- and phase-averaged velocity vectors :math:`(U,V)` in the whole computational domain;
-   make sure the file extension is ``.mat``
+   make sure that the file extension is ``.mat``
+#. set
+
+   - the cycle period for synthesizing the surface elevation to 20 min,
+   - the phase averaging of the wave-induced current during the last 20 minutes of the simulation, and
+   - the simulation time to 30 minutes.
 
 .. attention::
 
