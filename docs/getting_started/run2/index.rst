@@ -1,7 +1,7 @@
 from Docker image
 =================
 
-The user can either choose between running SWASH directly using docker or the docker in interactive mode (option ``-it``).
+The user can either choose between running SWASH directly using docker or the docker in interactive mode (flag ``-it``).
 
 To run SWASH directly, copy and paste the following command, replace the required run parameters, and hit Enter::
 
