@@ -58,7 +58,7 @@ Modify the file ``obqwav.sws`` according to the following instructions:
    - Regarding the first three instructions, see the keyword ``CGRID``.
    - Look at keywords ``INPGRID`` and ``READINP`` for point 4.
    - For point 5 see ``VISCOSITY``.
-   - For point 8 see ``CURVE``.
+   - For point 9 see ``CURVE``.
 
 If you can't figure out how to deal with these instructions, copy the text below::
 
