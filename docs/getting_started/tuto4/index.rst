@@ -45,7 +45,7 @@ Modify the file ``obqwav.sws`` according to the following instructions:
 
 .. attention::
 
-   Since the deepest part is set to 23 m (making a beach slope of 25/1000 = 1:40), :math:`kd \approx 1` which implies 1 vertical layer.
+   Since the deepest part is set to 23 m (making a beach slope of 25/1000 = 1:40) while the peak period is 10 s, :math:`kd \approx 1` which implies 1 vertical layer.
 
 .. tip::
 
