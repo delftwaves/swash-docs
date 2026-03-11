@@ -43,6 +43,10 @@ Modify the file ``obqwav.sws`` according to the following instructions:
 #. include the ``BLOCK`` command to make a snapshot of the depth- and phase-averaged velocity vectors :math:`(U,V)` in the whole computational domain;
    make sure the file extension is ``.mat``
 
+.. attention::
+
+   Since the deepest part is set to 23 m (making a beach slope of 25/1000 = 1:40), :math:`kd \approx 1` which implies 1 vertical layer.
+
 .. tip::
 
    Access the commands directly through this `page <https://swash.sourceforge.io/online_doc/swashuse/swashuse.html#index>`_.
