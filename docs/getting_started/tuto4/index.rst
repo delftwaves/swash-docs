@@ -1,3 +1,5 @@
+.. _tuto4:
+
 tutorial 4: simulation of oblique waves on a 2D planar beach
 ============================================================
 
