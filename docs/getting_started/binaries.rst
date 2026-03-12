@@ -18,9 +18,9 @@ The SWASH v11.01 binaries are available for the following OS/ARCH:
      If this is the case, then :ref:`Docker <docker>` might be a good alternative for you.
    - The tarball files can be extracted in any folder (``tar xzf SWASH-11.01-<OS>.tar.gz`` with ``OS = Linux`` or ``macOS``)
      and has no further installation steps.
-     However, do not forget to permanently add the installed folder in your ``$PATH`` variable. Open a command line terminal and enter::
+     However, do not forget to permanently add the ``/bin`` folder in your installed folder in your ``$PATH`` variable. Open a command line terminal and enter::
 
-        echo export PATH=$PATH:/your/SWASH/folder/ >> ~/.bash_profile
+        echo export PATH=$PATH:/your-SWASH-folder/bin >> ~/.bash_profile
 
    - The macOS executables require the GCC (GNU Compiler Collection) package. Open a terminal (Applications > Utilities and search for the Terminal app),
      copy and paste the following command, and hit Enter::
