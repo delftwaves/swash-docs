@@ -105,6 +105,8 @@ will configure SWASH to be installed at ``C:\Program Files\swash``.
 
       docker run --rm -v .:/home/swash -it delftwaves/swash bash
 
+   The base image of this container is Ubuntu 24.04. Thus, consult this :ref:`page <deblin>` for building SWASH.
+
 clean up
 --------
 
