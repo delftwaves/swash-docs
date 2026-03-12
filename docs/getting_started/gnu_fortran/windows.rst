@@ -82,12 +82,7 @@ To run SWASH, you need to make sure that this directory is added to your system'
 options for configuring SWASH
 -----------------------------
 
-If desired, the build can be configured by passing the following option to ``gmake config``.
-
-    ===================  =====================================================================================
-    ``prefix=<folder>``  set the installation folder [``%LocalAppData%\Programs\wavemodels\swash`` by default]
-    ===================  =====================================================================================
-
+If desired, the build can be configured by passing the option ``prefix=<folder>`` to ``gmake config``.
 For example, the following command
 
 .. code-block:: text
@@ -102,7 +97,7 @@ will configure SWASH to be installed at ``C:\Program Files\swash``.
 
    Alternatively, you could consider building with Intel Fortran + MPI; click on this :ref:`page <intelwin>` for details.
    Another option is to build SWASH yourself within this `docker container <https://hub.docker.com/r/delftwaves/swash>`_.
-   The necessary GNU Fortran compiler and MPI libraries are already included in this container.
+   The GNU Fortran compiler and MPI libraries are already included in this container.
 
    You can login the container:
 

@@ -155,7 +155,7 @@ your ``~/.bash_profile`` (or ``~/.bashrc`` file), as follows
 
 .. code-block:: bash
 
-   echo export PATH=$PATH:$HOME/wavemodels/swash >> ~/.bash_profile
+   echo export PATH=$PATH:$HOME/wavemodels/swash/bin >> ~/.bash_profile
 
 options for configuring SWASH
 -----------------------------

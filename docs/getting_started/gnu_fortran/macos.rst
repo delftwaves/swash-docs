@@ -117,7 +117,7 @@ You can check the new value of ``PATH`` by echoing it: ``echo $PATH``. However, 
 
 .. code-block:: bash
 
-   echo export PATH=$PATH:$HOME/wavemodels/swash >> ~/.bash_profile
+   echo export PATH=$PATH:$HOME/wavemodels/swash/bin >> ~/.bash_profile
 
 options for configuring SWASH
 -----------------------------
