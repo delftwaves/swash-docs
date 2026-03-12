@@ -132,7 +132,8 @@ Depending on your laptop, it will take a few minutes for the simulation to compl
 step 4: post processing
 -----------------------
 
-Adjust files ``mkplot.m`` or ``mkplot.ipynb`` as needed and apply them for output.
+Adjust files ``mkplot.m`` or ``mkplot.ipynb`` as needed and apply them for output. For instance, include wave-induced currents (undertow and longshore current)
+in your plots (``Mvel_x`` and ``Mvel_y`` are :math:`x`- and :math:`y`-components of the velocity).
 
 You can also make a quiver plot of the spatially-varying wave-induced current by entering the following commands in Matlab:
 

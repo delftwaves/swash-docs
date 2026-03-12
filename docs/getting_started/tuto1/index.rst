@@ -94,7 +94,7 @@ What does this mean? We impose irregular waves to the west side of the model dom
 Furthermore, second order sub- and super-harmonic bound waves are added to these first order free waves. Finally, for the synthesization of a time series of the surface
 elevation at the boundary a cycle period of 20 minutes is employed.
 
-.. note::
+.. hint::
 
    For a correct syntax specification of boundary conditions and the various options, click on this `page <https://swash.sourceforge.io/online_doc/swashuse/swashuse.html#dx1-34003>`_.
 
