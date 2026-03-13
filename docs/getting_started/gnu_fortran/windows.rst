@@ -69,11 +69,11 @@ SWASH is installed at folder ``%LocalAppData%\Programs\wavemodels\swash`` by def
 
    echo %LocalAppData%
 
-To run SWASH, you need to make sure that this directory is added to your system's ``PATH``. Open command prompt and type
+To run SWASH, you need to make sure that the ``\bin`` folder in this directory is added to your system's ``PATH``. Open command prompt and type
 
 .. code-block:: text
 
-   setx path "%path%;%LocalAppData%\Programs\wavemodels\swash"
+   setx path "%path%;%LocalAppData%\Programs\wavemodels\swash\bin"
 
 .. warning::
 
@@ -93,19 +93,9 @@ will configure SWASH to be installed at ``C:\Program Files\swash``.
 
 .. note::
 
-   Unfortunately, it's not possible to build SWASH with MPI support.
-
-   Alternatively, you could consider building with Intel Fortran + MPI; click on this :ref:`page <intelwin>` for details.
-
-   Another option is to build SWASH yourself within this `docker container <https://hub.docker.com/r/delftwaves/swash>`_.
-   The GNU Fortran compiler and MPI libraries are already included in this container.
-   You can login the container:
-
-   .. code-block:: bat
-
-      docker run --rm -v .:/home/swash -it delftwaves/swash bash
-
-   The base image of this container is Ubuntu 24.04. Thus, consult this :ref:`page <deblin>` for building SWASH.
+   Unfortunately, there is no simple way to build SWAN with MPI support using gfortran.
+   One consideration is to build using :ref:`Intel Fortran + MPI <intelwin>`.
+   Another option is to build within the :ref:`Docker container <indoc>`.
 
 clean up
 --------

@@ -20,3 +20,5 @@ If the installation was successful, you should see a message saying that SWASH r
 
 To run your own SWASH application, download the official `SWASH docker image <https://hub.docker.com/r/delftwaves/swash>`_ from the Docker Hub repository.
 Like the SWASH source code, this image is distributed under `GNU GPL v3 license <https://gitlab.tudelft.nl/citg/wavemodels/swash/-/blob/main/LICENSE>`_.
+
+Consult this :ref:`page <docrun>` for the various run instructions.
