@@ -160,6 +160,10 @@ or
 
    mpirun --version
 
+.. warning::
+
+   If Open MPI is not found, replace ``openmpi5`` by ``openmpi`` in the above paths.
+
 Once Open MPI is operational, we proceed to build SWASH. First, we configure SWASH to be built with support for Open MPI, as follows
 
 .. code-block:: bash
