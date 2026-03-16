@@ -1,7 +1,7 @@
-macOS
-=====
+install SWASH on RPM-based Linux distributions
+==============================================
 
-.. _prerequisitesm:
+.. _prerequisiteslr:
 
 prerequisites
 -------------
@@ -14,49 +14,63 @@ The following packages must be installed first:
 - perl
 - git
 
-These packages can be installed using system package managers such as Homebrew, MacPorts and Fink.
-Here, we will use `Homebrew <https://brew.sh>`_.
-You may install Homebrew first (visit its homepage, copy the installation command, open a terminal and paste it into your terminal, and press Enter)
-or update it: ``brew update``.
+These packages can be installed using the default package manager ``dnf``.
 
-With the command ``brew list`` you can check the installed packages (or *formulae*) on your macOS. If desired, upgrade these packages first by
-typing ``brew upgrade``. Below are the instructions for installing the required packages.
-
-First, install GCC (GNU Compiler Collection) that includes ``gfortran`` by opening a terminal (Applications > Utilities and search for the
-Terminal app) and typing the following command
+First, update the system
 
 .. code-block:: bash
 
-   brew install gcc
+   sudo dnf -y update
 
-To verify the installation, type ``which gfortran`` in the terminal. It should return a path where ``gfortran`` has been installed.
-On Apple Silicon, the compiler will be installed into the folder ``/opt/homebrew/bin/``, while on an older Intel Mac, it will be
-installed in ``/usr/local/bin``.
-
-Alternatively, type ``gfortran --version`` in the terminal. It should return a version number.
-
-Next, open a terminal and run the following command
+Next, run the following command to install GCC (GNU Compiler Collection) on the system
 
 .. code-block:: bash
 
-   brew install cmake
+   sudo dnf -y install gcc
 
-and then
-
-.. code-block:: bash
-
-   brew install ninja
-
-and finally
+and then ``gfortran``
 
 .. code-block:: bash
 
-   brew install git
+   sudo dnf -y install gcc-gfortran
 
-These commands will installed ``CMake``, ``ninja`` and ``git`` on your machine.
+To install ``cmake``, enter
 
-Usually, ``perl`` is pre-installed on macOS. This can be checked with the command ``perl -v``.
-Otherwise, you may install it by running the command ``brew install perl``.
+.. code-block:: bash
+
+   sudo dnf -y install cmake
+
+Finally, install ``ninja`` by running the following command
+
+.. code-block:: bash
+
+   sudo dnf -y install ninja-build
+
+.. warning::
+
+   On Rocky Linux 9+, this command must be preceded by the two commands below:
+
+   .. code-block:: bash
+
+      sudo dnf -y install dnf-plugins-core
+      sudo dnf config-manager --set-enabled crb
+
+   Note that Rocky 8 installs an older version of Ninja, namely 1.8.2, while ``CMake`` requires 1.10+ in order to build fortran. So if possible, please upgrade to Rocky 9 or higher.
+
+Before installing ``perl``, check if it is already present on your Linux distribution, by typing
+
+.. code-block:: bash
+
+   perl -v
+
+If ``perl`` is not installed, the shell reports that this command is not found.
+In that case, install the perl interpreter as follows
+
+.. code-block:: bash
+
+   sudo dnf -y install perl
+
+The same for ``git``. Either verify the installation by typing ``git version`` or install it by running ``sudo dnf -y install git``.
 
 verify installations
 ~~~~~~~~~~~~~~~~~~~~
@@ -90,11 +104,11 @@ Once the prerequisites are taken care of, installing SWASH on your machine is a 
 
 1. download SWASH
 
-Open a Terminal app, copy the command below to paste into the terminal, and press Enter.
-
 .. code-block:: bash
 
    git clone https://gitlab.tudelft.nl/citg/wavemodels/swash.git && cd swash
+
+Paste this into a shell terminal.
 
 2. configure SWASH
 
@@ -122,8 +136,8 @@ Open the terminal and enter
 
    export PATH=$PATH:$HOME/wavemodels/swash/bin
 
-You can check the new value of ``PATH`` by echoing it: ``echo $PATH``. However, to set this permanently, you need to add it to your
-``~/.bashrc``, as follows
+You can check the new value of ``PATH`` by echoing it: ``echo $PATH``.
+However, to set this permanently, you need to add it to your ``~/.bashrc``, as follows
 
 .. code-block:: bash
 
@@ -135,11 +149,11 @@ options for configuring SWASH
 
 If desired, the build can be configured by passing one or more options below to ``make config``.
 
-    ===================  ===================================================================
+    ===================  ==================================================================
     ``fc=<compiler>``    the Fortran90 compiler to use [default is determined by ``CMake``]
     ``mpi=on``           enable build of SWASH with MPI [``off`` by default]
-    ``prefix=<folder>``  set the installation folder [``$HOME/wavemodels/swash`` by default]
-    ===================  ===================================================================
+    ``prefix=<folder>``  set the installation folder [``$HOME/wavemodels/swash by`` default]
+    ===================  ==================================================================
 
 For example, the following command
 
@@ -149,6 +163,8 @@ For example, the following command
 
 will configure SWASH to be built using ``gfortran`` and then install it at ``/usr/local/swash``.
 
+.. _bmpir:
+
 building with MPI support
 -------------------------
 
@@ -157,14 +173,14 @@ A message passing approach is employed based on the Message Passing Interface (M
 
 Popular implementations are `Open MPI <https://www.open-mpi.org>`_ and `MPICH <https://www.mpich.org>`_.
 The first one is typically offered by the package managers of Linux and macOS and can be combined with GCC such as gfortran.
-The easiest way to install Open MPI is by using the Homebrew package manager.
 
-Before installing Open MPI, make sure that your system is up to date and that GCC has been installed, see :ref:`prerequisites <prerequisitesm>`.
-To install Open MPI, run
+Before installing Open MPI, make sure that your system is up to date and that GCC has been installed, see :ref:`prerequisites <prerequisiteslr>`.
+
+To install Open MPI on a RPM-based Linux, run
 
 .. code-block:: bash
 
-   brew install openmpi
+   sudo dnf -y install openmpi openmpi-devel
 
 To verify whether the installation was successful, run the following command
 
@@ -177,6 +193,17 @@ or
 .. code-block:: bash
 
    mpirun --version
+
+.. warning::
+
+   To use the compiler ``mpifort`` and runner ``mpirun`` on Fedora and Rocky Linux, you'll need to set up the environment path.
+   Insert the following commands
+
+   .. code-block:: bash
+
+      echo source /etc/profile.d/modules.sh >> ~/.bashrc
+      echo module load mpi/openmpi-$(arch) >> ~/.bashrc
+      source ~/.bashrc
 
 Once Open MPI is operational, we proceed to build SWASH. First, we configure SWASH to be built with support for Open MPI, as follows
 
