@@ -11,6 +11,8 @@ transport phenomena in coastal waters as driven by waves, tides, buoyancy and wi
 for describing wave transformations from deep water to a beach, port or harbour, complex changes to rapidly varied flows,
 and density driven flows in coastal seas, estuaries, lakes and rivers.
 
+This documentation aims to provide a comprehensive guide on how to use and develop applications with SWASH.
+
 .. toctree::
    :maxdepth: 1
    :hidden:
