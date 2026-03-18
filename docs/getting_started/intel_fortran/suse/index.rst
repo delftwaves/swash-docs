@@ -1,18 +1,19 @@
 install SWASH on SUSE Linux
 ===========================
 
-.. _prerequisitesls:
+.. _prerequisiteslsi:
 
 prerequisites
 -------------
 
 The following packages must be installed first:
 
-- gfortran
+- gcc
 - cmake
 - ninja
-- perl
 - git
+- perl
+- intel-fortran-essentials
 
 These packages can be installed using the package manager ``zypper``.
 
@@ -26,9 +27,51 @@ followed by
 
 .. code-block:: bash
 
-   sudo zypper install -y gcc gcc-fortran cmake ninja git
+   sudo zypper install -y gcc cmake ninja git
 
 The package ``perl`` is installed by default.
+
+The final step is to install the Intel Fortran Essentials package which also includes the MPI libraries.
+First, add the Intel oneAPI repository public key with the following command:
+
+.. code-block:: bash
+
+   sudo zypper addrepo https://yum.repos.intel.com/oneapi oneAPI
+
+By adding this new repository, ``zypper`` automatically imports the public repo key. For some cases ``rpm`` might require explicit key import by:
+
+.. code-block:: bash
+
+   rpm --import https://yum.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS.PUB
+
+Finally, install the package with the following command:
+
+.. code-block:: bash
+
+   sudo zypper install -y intel-fortran-essentials
+
+.. important::
+
+   If the above installation method does not work or fails, there is the option to use the offline installer.
+   This installer can be downloaded by entering the following command:
+
+   .. code-block:: bash
+
+      wget https://registrationcenter-download.intel.com/akdlm/IRC_NAS/ce0f9b00-4780-483f-bc09-96d6fb4467ca/intel-fortran-essentials-2025.3.1.26_offline.sh
+
+   Then run the installation script as follows:
+
+   .. code-block:: bash
+
+      sudo sh ./intel-fortran-essentials-2025.3.1.26_offline.sh -a --silent --cli --eula accept
+
+Let your OS system know where to find the compilers and libraries:
+
+.. code-block:: bash
+
+   echo export INTF=/opt/intel/oneapi >> ~/.bashrc
+   echo "source \$INTF/setvars.sh > /dev/null 2>&1" >> ~/.bashrc
+   source ~/.bashrc
 
 verify installations
 ~~~~~~~~~~~~~~~~~~~~
@@ -37,7 +80,7 @@ Verify the required installations by checking their versions, as follows
 
 .. code-block:: bash
 
-   gfortran --version
+   ifx --version
 
    cmake --version
 
@@ -117,9 +160,9 @@ For example, the following command
 
 .. code-block:: bash
 
-   make config fc=gfortran prefix=/usr/local/swash
+   make config fc=ifx prefix=/usr/local/swash
 
-will configure SWASH to be built using ``gfortran`` and then install it at ``/usr/local/swash``.
+will configure SWASH to be built using ``ifx`` and then install it at ``/usr/local/swash``.
 
 building with MPI support
 -------------------------
@@ -127,46 +170,18 @@ building with MPI support
 The SWASH source code also supports memory-distributed parallelism for high performance computing applications.
 A message passing approach is employed based on the Message Passing Interface (MPI) standard that enables communication between independent processors.
 
-Popular implementations are `Open MPI <https://www.open-mpi.org>`_ and `MPICH <https://www.mpich.org>`_.
-The first one is typically offered by the package managers of Linux and macOS and can be combined with GCC such as gfortran.
-
-Before installing Open MPI, make sure that your system is up to date and that GCC has been installed, see :ref:`prerequisites <prerequisitesls>`.
-
-To install Open MPI on SUSE Linux, run
-
-.. code-block:: bash
-
-   sudo zypper install -y openmpi openmpi-devel
-
-and then
-
-.. code-block:: bash
-
-   echo export PATH=$PATH:/usr/lib64/mpi/gcc/openmpi5/bin/ >> ~/.bashrc
-   echo export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib64/mpi/gcc/openmpi5/lib64/ >> ~/.bashrc
-   source ~/.bashrc
-
-To verify whether the installation was successful, run the following command
-
-.. code-block:: bash
-
-   ompi_info --version
-
-or
+The Intel Fortran Essentials package also contains the Intel MPI Library.
+This can be checked with the following command:
 
 .. code-block:: bash
 
    mpirun --version
 
-.. warning::
-
-   If Open MPI is not found, replace ``openmpi5`` by ``openmpi`` in the above paths.
-
-Once Open MPI is operational, we proceed to build SWASH. First, we configure SWASH to be built with support for Open MPI, as follows
+We proceed to build SWASH. First, we configure SWASH to be built with support for MPI, as follows
 
 .. code-block:: bash
 
-   make config fc=mpifort mpi=on
+   make config fc=mpiifx mpi=on
 
 The actual building is done by typing
 

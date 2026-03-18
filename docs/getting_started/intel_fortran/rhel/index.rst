@@ -1,34 +1,103 @@
-install SWASH on SUSE Linux
-===========================
+install SWASH on RPM-based Linux distributions
+==============================================
 
-.. _prerequisitesls:
+.. _prerequisiteslir:
 
 prerequisites
 -------------
 
 The following packages must be installed first:
 
-- gfortran
+- gcc
 - cmake
 - ninja
-- perl
 - git
+- perl
+- intel-fortran-essentials
 
-These packages can be installed using the package manager ``zypper``.
+These packages can be installed using the default package manager ``dnf``.
 
-Open a command line terminal and run the following commands:
-
-.. code-block:: bash
-
-   sudo zypper update -y
-
-followed by
+First, update the system
 
 .. code-block:: bash
 
-   sudo zypper install -y gcc gcc-fortran cmake ninja git
+   sudo dnf -y update
 
-The package ``perl`` is installed by default.
+Next, run the following command to install GCC (GNU Compiler Collection) on the system
+
+.. code-block:: bash
+
+   sudo dnf -y install gcc
+
+To install ``cmake``, enter
+
+.. code-block:: bash
+
+   sudo dnf -y install cmake
+
+Finally, install ``ninja`` by running the following command
+
+.. code-block:: bash
+
+   sudo dnf -y install ninja-build
+
+.. warning::
+
+   On AlmaLinux OS 9 and Rocky Linux 9, this command must be preceded by the two commands below:
+
+   .. code-block:: bash
+
+      sudo dnf -y install dnf-plugins-core
+      sudo dnf config-manager --set-enabled crb
+
+   Note that both AlmaLinux 8 and Rocky 8 install an older version of Ninja, namely 1.8.2, while ``CMake`` requires 1.10+ in order to build fortran. So if possible, please upgrade to
+   a higher OS version.
+
+On Oracle Linux 9 ``ninja`` should be installed as follows:
+
+.. code-block:: bash
+
+   sudo dnf --enablerepo=ol9_codeready_builder install ninja-build
+
+Install both ``git`` and ``perl`` in the following way:
+
+.. code-block:: bash
+
+   sudo dnf -y install git
+
+The final step is to install the Intel Fortran Essentials package which also includes the MPI libraries. First, create the repository file in the ``/temp`` folder:
+
+.. code-block:: text
+
+   tee > /tmp/oneAPI.repo << EOF
+   [oneAPI]
+   name=Intel(R) oneAPI repository
+   baseurl=https://yum.repos.intel.com/oneapi
+   enabled=1
+   gpgcheck=1
+   repo_gpgcheck=1
+   gpgkey=https://yum.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS.PUB
+   EOF
+
+Next, move this repo file ``oneAPI.repo`` to the yum configuration folder ``/etc/yum.repos.d``:
+
+.. code-block:: bash
+
+   sudo mv /tmp/oneAPI.repo /etc/yum.repos.d
+
+Finally, install the package with the following command:
+
+.. code-block:: bash
+
+   sudo dnf -y install intel-fortran-essentials
+
+Let your OS system know where to find the compilers and libraries:
+
+.. code-block:: bash
+
+   echo export INTF=/opt/intel/oneapi >> ~/.bashrc
+   echo "source \$INTF/setvars.sh > /dev/null 2>&1" >> ~/.bashrc
+   source ~/.bashrc
 
 verify installations
 ~~~~~~~~~~~~~~~~~~~~
@@ -37,7 +106,7 @@ Verify the required installations by checking their versions, as follows
 
 .. code-block:: bash
 
-   gfortran --version
+   ifx --version
 
    cmake --version
 
@@ -117,9 +186,9 @@ For example, the following command
 
 .. code-block:: bash
 
-   make config fc=gfortran prefix=/usr/local/swash
+   make config fc=ifx prefix=/usr/local/swash
 
-will configure SWASH to be built using ``gfortran`` and then install it at ``/usr/local/swash``.
+will configure SWASH to be built using ``ifx`` and then install it at ``/usr/local/swash``.
 
 building with MPI support
 -------------------------
@@ -127,46 +196,18 @@ building with MPI support
 The SWASH source code also supports memory-distributed parallelism for high performance computing applications.
 A message passing approach is employed based on the Message Passing Interface (MPI) standard that enables communication between independent processors.
 
-Popular implementations are `Open MPI <https://www.open-mpi.org>`_ and `MPICH <https://www.mpich.org>`_.
-The first one is typically offered by the package managers of Linux and macOS and can be combined with GCC such as gfortran.
-
-Before installing Open MPI, make sure that your system is up to date and that GCC has been installed, see :ref:`prerequisites <prerequisitesls>`.
-
-To install Open MPI on SUSE Linux, run
-
-.. code-block:: bash
-
-   sudo zypper install -y openmpi openmpi-devel
-
-and then
-
-.. code-block:: bash
-
-   echo export PATH=$PATH:/usr/lib64/mpi/gcc/openmpi5/bin/ >> ~/.bashrc
-   echo export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib64/mpi/gcc/openmpi5/lib64/ >> ~/.bashrc
-   source ~/.bashrc
-
-To verify whether the installation was successful, run the following command
-
-.. code-block:: bash
-
-   ompi_info --version
-
-or
+The Intel Fortran Essentials package also contains the Intel MPI Library.
+This can be checked with the following command:
 
 .. code-block:: bash
 
    mpirun --version
 
-.. warning::
-
-   If Open MPI is not found, replace ``openmpi5`` by ``openmpi`` in the above paths.
-
-Once Open MPI is operational, we proceed to build SWASH. First, we configure SWASH to be built with support for Open MPI, as follows
+We proceed to build SWASH. First, we configure SWASH to be built with support for MPI, as follows
 
 .. code-block:: bash
 
-   make config fc=mpifort mpi=on
+   make config fc=mpiifx mpi=on
 
 The actual building is done by typing
 

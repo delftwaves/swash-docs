@@ -113,11 +113,11 @@ options for configuring SWASH
 
 If desired, the build can be configured by passing one or more options below to ``make config``.
 
-    ===================  ==================================================================
+    ===================  ===================================================================
     ``fc=<compiler>``    the Fortran90 compiler to use [default is determined by ``CMake``]
     ``mpi=on``           enable build of SWASH with MPI [``off`` by default]
     ``prefix=<folder>``  set the installation folder [``$HOME/wavemodels/swash by`` default]
-    ===================  ==================================================================
+    ===================  ===================================================================
 
 For example, the following command
 
@@ -126,8 +126,6 @@ For example, the following command
    make config fc=gfortran prefix=/usr/local/swash
 
 will configure SWASH to be built using ``gfortran`` and then install it at ``/usr/local/swash``.
-
-.. _bmpid:
 
 building with MPI support
 -------------------------

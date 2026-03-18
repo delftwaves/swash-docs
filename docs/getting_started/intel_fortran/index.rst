@@ -6,4 +6,3 @@ installing SWASH using Intel Fortran
 
    windows
    linux
-   macos
