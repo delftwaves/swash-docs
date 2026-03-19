@@ -159,7 +159,7 @@ If desired, the build can be configured by passing one or more options below to 
     ===================  ===================================================================
     ``fc=<compiler>``    the Fortran90 compiler to use [default is determined by ``CMake``]
     ``mpi=on``           enable build of SWASH with MPI [``off`` by default]
-    ``prefix=<folder>``  set the installation folder [``$HOME/wavemodels/swash by`` default]
+    ``prefix=<folder>``  set the installation folder [``$HOME/wavemodels/swash`` by default]
     ===================  ===================================================================
 
 For example, the following command

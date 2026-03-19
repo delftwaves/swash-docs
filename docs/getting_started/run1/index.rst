@@ -15,9 +15,10 @@ while for Linux and Mac users, type in an opened terminal the following command:
 
 .. important::
 
-   The script ``swashrun`` needs to be made executable first, as follows::
+   - Open an :ref:`Intel oneAPI command prompt <ioap>` in Windows if you have installed the :ref:`Intel Fortran Essentials package <intelwin>`.
+   - In case of Linux/macOS, the script ``swashrun`` needs to be made executable first, as follows::
 
-     chmod +rx swashrun
+       chmod +rx swashrun
 
 To redirect screen output to a file, use the sign ``>``. Use an ampersand to run SWASH in the background. An example::
 
