@@ -13,3 +13,4 @@ Alternatively, you can run SWASH immediately using a docker container. Especiall
    docker
    binaries
    source
+   dblue
