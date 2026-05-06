@@ -1,6 +1,6 @@
 # SWASH documentation
 
-[![release](https://img.shields.io/badge/release%20-%20v11.01%20-%20brightgreen?color=success)]()
+[![release](https://img.shields.io/badge/release%20-%20v12.01%20-%20brightgreen?color=success)]()
 [![site](https://img.shields.io/badge/sourceforge%20-%20site%20-%20blue?logo=sourceforge&color=informational)](https://swash.sourceforge.io)
 [![repo](https://img.shields.io/badge/gitlab%20-%20repo%20-%20blue?logo=gitlab&color=informational)](https://gitlab.tudelft.nl/citg/wavemodels/swash)
 [![image](https://img.shields.io/badge/delftwaves%2Fswash%20-%20image%20-%20blue?logo=docker&color=informational)](https://hub.docker.com/r/delftwaves/swash)

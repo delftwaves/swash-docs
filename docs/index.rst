@@ -36,11 +36,11 @@ This documentation aims to provide a comprehensive guide on how to use and devel
    :hidden:
    :caption: user manual
 
-   introduction <https://swash.sourceforge.io/online_doc/swashuse/swashuse.html#general-description-and-instructions-for-use>
-   input / output files <https://swash.sourceforge.io/online_doc/swashuse/swashuse.html#input-and-output-files>
-   description of input commands <https://swash.sourceforge.io/online_doc/swashuse/swashuse.html#description-of-commands>
-   best practices for use <https://swash.sourceforge.io/online_doc/swashuse/swashuse.html#setting-up-your-own-command-file>
-   reference to commands <https://swash.sourceforge.io/online_doc/swashuse/swashuse.html#index>
+   introduction <https://swash.sourceforge.io/online_doc/swashuse/swashuse.html#x1-30002>
+   input / output files <https://swash.sourceforge.io/online_doc/swashuse/swashuse.html#x1-220003>
+   description of input commands <https://swash.sourceforge.io/online_doc/swashuse/swashuse.html#x1-260004>
+   best practices for use <https://swash.sourceforge.io/online_doc/swashuse/swashuse.html#x1-420005>
+   reference to commands <https://swash.sourceforge.io/online_doc/swashuse/swashuse.html#Q1-1-133>
 
 .. toctree::
    :maxdepth: 1
