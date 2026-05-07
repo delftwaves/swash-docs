@@ -91,8 +91,9 @@ The mandatory filename is ``bc.txt``. (Again, this naming is only meant for the 
    BOUND SIDE West BTYPE WEAK ADDBoundwave CON SPECTrum 0.5 10. cycle 20 min
 
 What does this mean? We impose irregular waves to the west side of the model domain using a Jonswap spectrum with a significant wave height of 0.5 m and a peak period of 10 s.
-Furthermore, second order sub- and super-harmonic bound waves are added to these first order free waves. Finally, for the synthesization of a time series of the surface
-elevation at the boundary a cycle period of 20 minutes is employed.
+Furthermore, second order sub- and super-harmonic bound waves are added to these first order free waves.
+Also, in order to prevent re-reflection at the wavemaker, a weakly reflective boundary condition is used.
+Finally, for the synthesization of a time series of the surface elevation at the boundary a cycle period of 20 minutes is employed.
 
 .. hint::
 

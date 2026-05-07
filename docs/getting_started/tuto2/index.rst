@@ -14,7 +14,7 @@ These commands include the following components:
 - set some physical and numerical parameters, and finally
 - define the output locations and output parameters.
 
-For a list of available commands, click `here <https://swash.sourceforge.io/online_doc/swashuse/swashuse.html#description-of-commands>`_.
+For a list of available commands, click `here <https://swash.sourceforge.io/online_doc/swashuse/swashuse.html#x1-260004>`_.
 
 step 1: download command file
 -----------------------------
@@ -54,7 +54,7 @@ must be replaced by::
 .. tip::
 
    Take a look at the command file and see if you already understand any of the commands. You can always consult the
-   `manual <https://swash.sourceforge.io/online_doc/swashuse/swashuse.html#index>`_ to find out exactly what all these
+   `manual <https://swash.sourceforge.io/online_doc/swashuse/swashuse.html#Q1-1-133>`_ to find out exactly what all these
    commands mean and how to specify them.
 
 step 3: rename the file ``INPUT``

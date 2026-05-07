@@ -40,7 +40,7 @@ Edit the copied file and modify or add:
 .. hint::
 
    Determine where to place the command ``VERT 2`` in the command file by consulting this
-   `page <https://swash.sourceforge.io/online_doc/swashuse/swashuse.html#sequence-of-commands>`_.
+   `page <https://swash.sourceforge.io/online_doc/swashuse/swashuse.html#x1-280004.2>`_.
 
 step 3: run new simulation
 --------------------------

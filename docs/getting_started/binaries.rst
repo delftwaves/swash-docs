@@ -2,12 +2,12 @@ pre-compiled binary packages
 ============================
 
 A pre-compiled binary distribution allows quick installation without requiring compilation.
-The SWASH v11.01 binaries are available for the following OS/ARCH:
+The SWASH v12.01 binaries are available for the following OS/ARCH:
 
-- `Windows 11 (AMD64) <https://swash.sourceforge.io/download/zip/SWASH-11.01-Windows.exe>`_
-- `Linux Ubuntu 24.04 LTS (AMD64) <https://swash.sourceforge.io/download/zip/SWASH-11.01-Linux.tar.gz>`_
-- `macOS Monterey 12.7.6 (AMD64) <https://swash.sourceforge.io/download/zip/SWASH-11.01-macOS.tar.gz>`_
-- `macOS Sequoia 15.7.3 (ARM64) <https://swash.sourceforge.io/download/zip/SWASH-11.01-macOS-Silicon.tar.gz>`_
+- `Windows 11 (AMD64) <https://swash.sourceforge.io/download/zip/SWASH-12.01-Windows.exe>`_
+- `Linux Ubuntu 24.04 LTS (AMD64) <https://swash.sourceforge.io/download/zip/SWASH-12.01-Linux.tar.gz>`_
+- `macOS Monterey 12.7.6 (AMD64) <https://swash.sourceforge.io/download/zip/SWASH-12.01-macOS.tar.gz>`_
+- `macOS Sequoia 15.7.3 (ARM64) <https://swash.sourceforge.io/download/zip/SWASH-12.01-macOS-Silicon.tar.gz>`_
 
 .. attention::
 
@@ -16,7 +16,7 @@ The SWASH v11.01 binaries are available for the following OS/ARCH:
    - Be aware that you may run into compatibility issues when another OS version (e.g., Windows 7, 32-bit Windows 10) or
      distro (e.g., Linux Mint, Rocky Linux) is installed on your machine, or another CPU architecture (e.g., i386/i686, x86_64, AMD64, ARMv7, ARM64).
      If this is the case, then :ref:`Docker <docker>` might be a good alternative for you.
-   - The tarball file can be extracted in any folder (``tar xzf SWASH-11.01-<OS>.tar.gz`` with ``OS = Linux`` or ``macOS``)
+   - The tarball file can be extracted in any folder (``tar xzf SWASH-12.01-<OS>.tar.gz`` with ``OS = Linux`` or ``macOS``)
      and has no further installation steps.
      However, do not forget to permanently add the ``/bin`` folder in your installed folder in your ``$PATH`` variable. Open a command line terminal and enter::
 
