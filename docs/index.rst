@@ -48,3 +48,11 @@ This documentation aims to provide a comprehensive guide on how to use and devel
    :caption: theory
 
    scientific/technical documentation <https://swash.sourceforge.io/online_doc/swashtech/swashtech.html>
+
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+   :caption: useful files
+
+   swashinit <https://swash.sourceforge.io/online_doc/swashimp/swashimp.html#x1-180004>
+   swash.edt <https://swash.sourceforge.io/online_doc/swashuse/swashuse.html#x1-74000C>
