@@ -91,7 +91,7 @@ Finally, install the required Intel packages with the following command:
 
 .. code-block:: bash
 
-   sudo dnf -y install intel-fortran-essentials
+   sudo dnf -y intel-oneapi-compiler-fortran intel-oneapi-mpi intel-oneapi-mpi-devel
 
 Let your OS system know where to find the compilers and libraries:
 
