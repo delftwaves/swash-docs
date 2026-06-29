@@ -24,6 +24,12 @@ To redirect screen output to a file, use the sign ``>``. Use an ampersand to run
 
    swashrun -input mytest > swashout &
 
+.. note::
+
+   To run SWASH on Windows in the background, type the built-in ``start /B`` command in command prompt, as follows::
+
+      start /B swashrun mytest > swashout
+
 For a parallel MPI run, you must specify the number of processors ``<nprocs>`` that will be launched, as follows:
 
 .. code-block:: text
