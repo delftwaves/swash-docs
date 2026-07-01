@@ -24,11 +24,13 @@ To redirect screen output to a file, use the sign ``>``. Use an ampersand to run
 
    swashrun -input mytest > swashout &
 
+where ``mytest.sws`` is your SWASH command file.
+
 .. note::
 
-   To run SWASH on Windows in the background, type the built-in ``start /B`` command in command prompt, as follows::
+   To run SWASH on Windows in the background, type the built-in ``start`` command in command prompt, as follows::
 
-      start /B swashrun mytest > swashout
+      start "" /min cmd /c "swashrun mytest > swashout 2>&1"
 
 For a parallel MPI run, you must specify the number of processors ``<nprocs>`` that will be launched, as follows:
 
@@ -43,3 +45,12 @@ in case of Windows, or
    swashrun -input <SWASH-command-file-without-extension> -mpi <nprocs>
 
 in case of Linux/Mac. By default, ``nprocs = 1``.
+
+As an example, assume that the command file is named ``mysim.sws`` while the corresponding simulation needs to be run on 5 cores.
+In case of Windows, type the following command in an :ref:`Intel oneAPI command prompt <ioap>`::
+
+   start "" /min cmd /c "swashrun mysim 5 > swashout 2>&1"
+
+while run the following command in a Linux/Mac terminal::
+
+   swashrun -input mysim -mpi 5 > swashout &
